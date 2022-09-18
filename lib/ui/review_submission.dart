@@ -8,123 +8,399 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import '../core/app_colors.dart';
 import 'dawer.dart';
+import 'edit_review_page.dart';
 
-class ReviewSubmission extends StatelessWidget {
+class ReviewSubmission extends StatefulWidget {
   const ReviewSubmission({Key? key}) : super(key: key);
 
   @override
+  State<ReviewSubmission> createState() => _ReviewSubmissionState();
+}
+
+class _ReviewSubmissionState extends State<ReviewSubmission> {
+  int submissionState = 0;
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Review Submission'),
-      ),
-      drawer: MyDrawer(),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Rate Us",
-                    style: TextStyle(
-                      fontSize: 60,
-                     // fontStyle: ,
-                    ),),
-                SizedBox(
-                  height: 10,
+
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+
+
+       return submissionState == 0 || submissionState == 2 ? Scaffold(
+         appBar: AppBar(
+           title: Text('Review Submission'),
+         ),
+         drawer: MyDrawer(),
+         body: SafeArea(
+           child: Column(
+             children: [
+               Expanded(
+                 child: Padding(
+                   padding: const EdgeInsets.only(left: 10, right: 10),
+                   child: Column(
+                     crossAxisAlignment: CrossAxisAlignment.start,
+                     children: [
+                       Expanded(
+                         child: Padding(
+                           padding: const EdgeInsets.only( top:5, left: 12, right: 12),
+                           child: Column(
+                             crossAxisAlignment: CrossAxisAlignment.start,
+                             children: [
+                               Text("Rate Us",
+                                 style: TextStyle(
+                                   fontSize: 60,
+                                   // fontStyle: ,
+                                 ),),
+                               SizedBox(
+                                 height: 10,
+                               ),
+                               RatingBar.builder(
+                                 initialRating: 3,
+                                 minRating: 1,
+                                 direction: Axis.horizontal,
+                                 allowHalfRating: true,
+                                 itemCount: 5,
+                                 itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                                 itemBuilder: (context, _) => Icon(
+                                   Icons.star,
+                                   color: Colors.amber,
+                                 ),
+                                 onRatingUpdate: (rating) {
+                                   print(rating);
+                                 },
+                               )
+                             ],
+                           ),
+                         ),
+                       ),
+                       Padding(
+                         padding: const EdgeInsets.only(top: 0, bottom: 0),
+                         child: Divider(
+                           color: AppColors.appBarColor,
+                         ),
+                       ),
+                       Padding(
+                         padding: const EdgeInsets.all(15.0),
+                         child: Column(
+                           crossAxisAlignment: CrossAxisAlignment.start,
+                           //mainAxisAlignment: MainAxisAlignment.end,
+                           children: [
+                             Text("Write Your\n"
+                                 "review",
+                               style: TextStyle(
+                                   fontSize: 60,
+                                   color: AppColors.blackTextColor
+                               ),
+                             ),
+                             Container(
+                               margin: EdgeInsets.only(top: 20, bottom: 25),
+                               height:   200.0,
+                               child: TextField(
+                                 maxLines: 8,
+                                 decoration: InputDecoration(
+                                   hintText: "Enter a message",
+                                   fillColor: Colors.grey[300],
+                                   filled: true,
+                                 ),
+                               ),
+                             ),
+                             Container(
+                               height: 50,
+                               width: MediaQuery.of(context).size.width,
+                               child: ElevatedButton(
+                                 child: Row(
+                                   mainAxisAlignment: MainAxisAlignment.center,
+                                   children: [
+                                     Text('Submit Review',
+                                       style: TextStyle(color: AppColors.reviewButtonText,
+                                           fontWeight: FontWeight.w300),),
+                                     SizedBox(
+                                       width: 15,
+                                     ),
+                                     Icon(
+                                       Icons.arrow_forward_ios,
+                                       color: AppColors.reviewButtonText,
+                                       size: 22.0,
+                                     ),
+                                   ],
+                                 ),
+                                 onPressed: () {
+                                setState(() {
+                                  submissionState = 1;
+                                  print(">>>>>.... $submissionState");
+                                });
+
+                                 },
+                                 style: ElevatedButton.styleFrom(
+                                     primary: AppColors.reviewButtonColor,
+                                     textStyle: TextStyle(
+                                         fontSize: 30,
+                                         fontWeight: FontWeight.bold)),
+                               ),
+                             ),
+                           ],
+                         ),
+                       )
+                     ],
+                   ),
+                 ),
+               ),
+              submissionState == 2 ?  Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Container(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width,
+                  child: ElevatedButton(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Delete Review',
+                          style: TextStyle(color: Colors.red,
+                              fontWeight: FontWeight.w300),),
+                        SizedBox(
+                          width: 15,
+                        ),
+                        // Icon(
+                        //   Icons.arrow_forward_ios,
+                        //   color: AppColors.reviewButtonText,
+                        //   size: 22.0,
+                        // ),
+                      ],
+                    ),
+                    onPressed: () => showDialog<String>(
+                          context: context,
+                          builder: (BuildContext context) => AlertDialog(
+                          title: const Text('AlertDialog Title'),
+                          content: const Text('AlertDialog description'),
+                          actions: <Widget>[
+                            TextButton(
+                          onPressed: () => Navigator.pop(context, 'Cancel'),
+                          child: const Text('Cancel'),
+                          ),
+                          TextButton(
+                          onPressed: () => Navigator.pop(context, 'OK'),
+                          child: const Text('OK'),
+                          ),
+                          ],
+                          ),
+                    ),
+    //child: const Text('Show Dialog'),
+
+                    style: ElevatedButton.styleFrom(
+                        primary: AppColors.colorWhite,
+                        textStyle: TextStyle(
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold)),
+                  ),
                 ),
-                RatingBar.builder(
-                     initialRating: 3,
-                     minRating: 1,
-                     direction: Axis.horizontal,
-                     allowHalfRating: true,
-                     itemCount: 5,
-                     itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                     itemBuilder: (context, _) => Icon(
-                     Icons.star,
-                     color: Colors.amber,
+              ) : SizedBox(
+                height: 30,
               ),
-          onRatingUpdate: (rating) {
-              print(rating);
-                },
-                 )
-                ],
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 30, bottom: 20),
-              child: Divider(
-                color: AppColors.appBarColor,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                //mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text("Write Your\n"
-                      "review",
-                    style: TextStyle(
-                      fontSize: 60,
-                      color: AppColors.blackTextColor
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(top: 20, bottom: 25),
-                    height:   200.0,
-                    child: TextField(
-                      maxLines: 8,
-                      decoration: InputDecoration(
-                        hintText: "Enter a message",
-                        fillColor: Colors.grey[300],
-                        filled: true,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 50,
-                    width: MediaQuery.of(context).size.width,
-                    child: ElevatedButton(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text('Submit Review',
-                            style: TextStyle(color: AppColors.reviewButtonText,
-                                fontWeight: FontWeight.w500),),
-                          SizedBox(
-                            width: 15,
-                          ),
-                          Icon(
-                            Icons.arrow_forward_ios,
-                            color: AppColors.reviewButtonText,
-                            size: 22.0,
-                          ),
-                        ],
-                      ),
-                      onPressed: () {
+             ],
+           ),
+         ),
+       ) :
+       Scaffold(
+         body: Container(
+           height: height ,
+           width: width,
+           color: AppColors.scaffoldBackround,
+           child: Column(
+             mainAxisAlignment: MainAxisAlignment.center,
+             children: [
 
-                          showDialog(
-                              context: context,
-                              builder: (BuildContext context) => ReviewEditPage());
-                        },
 
-                      style: ElevatedButton.styleFrom(
-                          primary: AppColors.reviewButtonColor,
-                          textStyle: TextStyle(
-                              fontSize: 30,
-                              fontWeight: FontWeight.bold)),
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
-      )
-    );
+               Container(
+                   decoration: BoxDecoration(
+                     borderRadius: BorderRadius.all(Radius.circular(10)),
+                     //color: Colors.blue,
+                     color: AppColors.colorWhite,
+                   ),
+                   height: width ,
+                   width: width * 0.75,
+                   child: Stack(
+                     children: [
+                       Center(
+                         child: Container(
+                           decoration: BoxDecoration(
+                             border: Border.all(
+                               color: Colors.amber,
+                               width: 1,
+                             ),
+                             borderRadius: BorderRadius.all(Radius.circular(5)),
+                             //color: Colors.blue,
+                           ),
+                           height: width * .65,
+                           width:  width * .55,
+                           child:     Column(
+                             crossAxisAlignment: CrossAxisAlignment.start,
+                             children: [
+                               SizedBox(height: 30,),
+                               Container(
+                                 child: RatingBar.builder(
+                                   itemSize: 20,
+                                   initialRating: 3,
+                                   minRating: 1,
+                                   direction: Axis.horizontal,
+                                   allowHalfRating: true,
+                                   itemCount: 5,
+                                   itemPadding: EdgeInsets.symmetric(horizontal: .5),
+                                   itemBuilder: (context, _) => Icon(
+                                     Icons.star,
+                                     color: Colors.amber,
+                                     size: 30,
+                                   ),
+                                   onRatingUpdate: (rating) {
+                                     print(rating);
+                                   },
+                                 ),
+                               ),
+                               Text("16 sep 2022",
+                                 style: TextStyle(
+                                   fontSize: 15,
+                                   color: Colors.grey,
+                                 ),),
+                               SizedBox(
+                                 height: 50,
+                               ),
+                               Text(
+                                   "Let's Play with SMILE Broadband Internet Engie join forces to convert the GOS, Orange's maiLet's Play with SMILE Broad..."
+                               ),SizedBox(
+                                 height: 50,
+                               ),
+                             ],
+                           ),
+                         ),
+                       ),
+                       Positioned(
+                           left: 55,
+                           top:45 ,
+                           child: CircleAvatar(
+                             child: Image.asset('assets/images/smile.png'),
+                           )),
+                       Positioned(
+                         right: 0,
+                         top: -6,
+                         child: ElevatedButton(
+                             child: Align(
+                                 alignment: Alignment.topRight,
+                                 child: Text("edit")),
+                             // Within the `FirstRoute` widget
+                             onPressed: () {
+                           setState(() {
+                             submissionState = 2;
+                           });
+                             }
+                         ),
+                       )
+                     ],
+                   )
+               )
+             ],
+           ),
+         ),
+       ) ;
+     // else if (submissionState == 2 )
+     //   return Scaffold(
+     //     body: Container(
+     //       height: height ,
+     //       width: width,
+     //       color: AppColors.scaffoldBackround,
+     //       child: Column(
+     //         mainAxisAlignment: MainAxisAlignment.center,
+     //         children: [
+     //
+     //
+     //           Container(
+     //               decoration: BoxDecoration(
+     //                 borderRadius: BorderRadius.all(Radius.circular(10)),
+     //                 //color: Colors.blue,
+     //                 color: AppColors.colorWhite,
+     //               ),
+     //               height: width ,
+     //               width: width * 0.75,
+     //               child: Stack(
+     //                 children: [
+     //                   Center(
+     //                     child: Container(
+     //                       decoration: BoxDecoration(
+     //                         border: Border.all(
+     //                           color: Colors.amber,
+     //                           width: 1,
+     //                         ),
+     //                         borderRadius: BorderRadius.all(Radius.circular(5)),
+     //                         //color: Colors.blue,
+     //                       ),
+     //                       height: width * .65,
+     //                       width:  width * .55,
+     //                       child:     Column(
+     //                         crossAxisAlignment: CrossAxisAlignment.start,
+     //                         children: [
+     //                           SizedBox(height: 30,),
+     //                           Container(
+     //                             child: RatingBar.builder(
+     //                               itemSize: 20,
+     //                               initialRating: 3,
+     //                               minRating: 1,
+     //                               direction: Axis.horizontal,
+     //                               allowHalfRating: true,
+     //                               itemCount: 5,
+     //                               itemPadding: EdgeInsets.symmetric(horizontal: .5),
+     //                               itemBuilder: (context, _) => Icon(
+     //                                 Icons.star,
+     //                                 color: Colors.amber,
+     //                                 size: 30,
+     //                               ),
+     //                               onRatingUpdate: (rating) {
+     //                                 print(rating);
+     //                               },
+     //                             ),
+     //                           ),
+     //                           Text("16 sep 2022",
+     //                             style: TextStyle(
+     //                               fontSize: 15,
+     //                               color: Colors.grey,
+     //                             ),),
+     //                           SizedBox(
+     //                             height: 50,
+     //                           ),
+     //                           Text(
+     //                               "Let's Play with SMILE Broadband Internet Engie join forces to convert the GOS, Orange's maiLet's Play with SMILE Broad..."
+     //                           ),SizedBox(
+     //                             height: 50,
+     //                           ),
+     //                         ],
+     //                       ),
+     //                     ),
+     //                   ),
+     //                   Positioned(
+     //                       left: 55,
+     //                       top:45 ,
+     //                       child: CircleAvatar(
+     //                         child: Image.asset('assets/images/smile.png'),
+     //                       )),
+     //                   Positioned(
+     //                     right: 0,
+     //                     top: -6,
+     //                     child: ElevatedButton(
+     //                         child: Align(
+     //                             alignment: Alignment.topRight,
+     //                             child: Text("edit")),
+     //                         // Within the `FirstRoute` widget
+     //                         onPressed: () {
+     //                           Navigator.push(
+     //                             context,
+     //                             MaterialPageRoute(builder: (context) => EditReviewPage()),
+     //                           );
+     //                         }
+     //                     ),
+     //                   )
+     //                 ],
+     //               )
+     //           )
+     //         ],
+     //       ),
+     //     ),
+     //   );
   }
 }

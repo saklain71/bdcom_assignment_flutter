@@ -3,8 +3,8 @@ import 'package:bdcom_assignment/ui/review_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
 import '../core/app_colors.dart';
+
 
 class EditReviewPage extends StatefulWidget {
   const EditReviewPage({Key? key}) : super(key: key);
@@ -23,7 +23,7 @@ class _EditReviewPageState extends State<EditReviewPage> {
     var width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-     body: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
             children: [
@@ -115,9 +115,9 @@ class _EditReviewPageState extends State<EditReviewPage> {
                                 ],
                               ),
                               onPressed: () {
-                                showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) => ReviewEditPage());
+                                // showDialog(
+                                //     context: context,
+                                //     builder: (BuildContext context) => ReviewEditPage());
 
                               },
                               style: ElevatedButton.styleFrom(
@@ -156,9 +156,9 @@ class _EditReviewPageState extends State<EditReviewPage> {
                       ],
                     ),
                     onPressed: ()
-                         {
+                    {
 
-                         },
+                    },
 
                     style: ElevatedButton.styleFrom(
                         primary: AppColors.colorWhite,
@@ -171,7 +171,6 @@ class _EditReviewPageState extends State<EditReviewPage> {
 
             ],
           ),
-
         ),
       ),
     );
