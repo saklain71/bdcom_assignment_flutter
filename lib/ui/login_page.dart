@@ -1,12 +1,15 @@
 
 
-import 'package:api_integration/core/app_colors.dart';
-import 'package:api_integration/ui/validator.dart';
-import 'package:api_integration/ui/slide_navigator.dart';
+//import 'package:api_integration/core/app_colors.dart';
+//import 'package:api_integration/ui/validator.dart';
+//import 'package:api_integration/ui/slide_navigator.dart';
+import 'package:bdcom_assignment/ui/main_screen.dart';
+import 'package:bdcom_assignment/ui/validator.dart';
 import 'package:flutter/material.dart';
+import '../core/app_colors.dart';
 
 
-import 'main_screen.dart';
+//import 'main_screen.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -26,23 +29,14 @@ class _LoginPageState extends State<LoginPage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.pageBackground,
-        // appBar: AppBar(
-        //   title: Text("Bd Com Flutter App"),
-        //   centerTitle: true,
-        //   elevation: 0,
-        // ),
+
         body: SingleChildScrollView(
           // Image(image: AssetImage('graphics/background.png'));
           child:Column(
 
             children: [
                SizedBox(height: 40,),
-          //AssetImage('icons/heart.png', package: 'my_icons'),
 
-              // Container(
-              //   color: Colors.blueAccent,
-              //   height:100 ,
-              // width: 190,),
               Center(
                 child: Image.asset('assets/images/smile.png'),
               ),
@@ -175,15 +169,13 @@ class _LoginPageState extends State<LoginPage> {
                                 onPressed: () {
                                   // Validate returns true if the form is valid, or false otherwise.
                                   if (_formKey.currentState!.validate()) {
-                                    // If the form is valid, display a snackbar. In the real world,
-                                    // you'd often call a server or save the information in a database.
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(content: Text('Processing Data')),
                                     );
-                                    // Navigator.push(
-                                    //   context,
-                                    //   MaterialPageRoute(builder: (context) =>  const Slider()),
-                                    // );
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(builder: (context) =>  MainScreen()),
+                                    );
                                   }
                                   print(nameController.text);
                                   print(passwordController.text);

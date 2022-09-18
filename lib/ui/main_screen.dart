@@ -1,12 +1,9 @@
-import 'package:api_integration/ui/contacts.dart';
-import 'package:api_integration/ui/dawer.dart';
-import 'package:api_integration/ui/dial_pad.dart';
-import 'package:api_integration/ui/home_page.dart';
-import 'package:api_integration/ui/location.dart';
-import 'package:api_integration/ui/profile.dart';
-import 'package:api_integration/ui/contacts.dart';
+
+import 'package:bdcom_assignment/ui/dial_pad.dart';
 
 import 'package:flutter/material.dart';
+
+import 'dawer.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -20,9 +17,7 @@ class _MyStatefulWidgetState extends State<MainScreen> {
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
-    HomePage(),
-    LocationPage(),
-    //ProfilePage(),
+    DialPadd(),
     DialPadd(),
 
     //FlutterContactsExample(),
@@ -47,19 +42,7 @@ class _MyStatefulWidgetState extends State<MainScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
 
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.location_city),
-          //   label: 'Location',
-          // ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'Profile',
-          ),
 
           // BottomNavigationBarItem(
           //   icon: Icon(Icons.school),
@@ -69,6 +52,19 @@ class _MyStatefulWidgetState extends State<MainScreen> {
             icon: Icon(Icons.dialpad),
             label: 'Dial',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.location_city),
+          //   label: 'Location',
+          // ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(Icons.school),
+          //   label: 'Profile',
+          // ),
         ],
 
         currentIndex: _selectedIndex,

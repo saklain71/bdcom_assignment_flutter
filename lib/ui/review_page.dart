@@ -1,7 +1,8 @@
-import 'package:api_integration/core/app_colors.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import '../core/app_colors.dart';
 import 'edit_review_page.dart';
 
 class ReviewEditPage extends StatefulWidget {

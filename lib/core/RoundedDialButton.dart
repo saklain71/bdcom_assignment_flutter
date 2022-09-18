@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
 class RoundedDialButton extends StatefulWidget {
-  //final Function()? function;
-  //final String? title;
+
    final Function() function;
    final String title;
    final Color color;
 
- // RoundedDialButton({required this.function, required this.title});
+
    RoundedDialButton({required this.function , required this.title, required this.color});
 
   @override
@@ -20,7 +19,7 @@ class _RoundedDialButtonState extends State<RoundedDialButton> {
     return InkWell(
       onTap: widget.function,
       child: CircleAvatar(
-        radius: 40,
+        radius: 39,
         backgroundColor : widget.color,
         child: Center(
           child: Text(widget.title,

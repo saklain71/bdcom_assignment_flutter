@@ -1,7 +1,9 @@
-import 'package:api_integration/core/app_colors.dart';
-import 'package:api_integration/ui/dawer.dart';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../core/app_colors.dart';
+import 'dawer.dart';
 
 class UserProfile extends StatefulWidget {
   const UserProfile({Key? key}) : super(key: key);

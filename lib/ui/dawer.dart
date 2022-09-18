@@ -1,6 +1,8 @@
 
-import 'package:api_integration/ui/review_submission.dart';
-import 'package:api_integration/ui/user_profile.dart';
+// import 'package:api_integration/ui/review_submission.dart';
+// import 'package:api_integration/ui/user_profile.dart';
+import 'package:bdcom_assignment/ui/review_submission.dart';
+import 'package:bdcom_assignment/ui/user_profile.dart';
 import 'package:flutter/material.dart';
 import '../core/app_colors.dart';
 

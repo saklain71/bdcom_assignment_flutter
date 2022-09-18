@@ -1,9 +1,12 @@
-import 'package:api_integration/core/app_colors.dart';
-import 'package:api_integration/ui/review_page.dart';
+//import 'package:api_integration/core/app_colors.dart';
+//import 'package:api_integration/ui/review_page.dart';
+import 'package:bdcom_assignment/ui/review_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+//import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
+import '../core/app_colors.dart';
 import 'dawer.dart';
 
 class ReviewSubmission extends StatelessWidget {

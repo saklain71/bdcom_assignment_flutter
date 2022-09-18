@@ -1,5 +1,5 @@
-import 'package:api_integration/ui/review_page.dart';
-import 'package:api_integration/ui/review_submission.dart';
+
+import 'package:bdcom_assignment/ui/review_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';

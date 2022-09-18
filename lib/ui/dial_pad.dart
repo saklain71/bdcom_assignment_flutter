@@ -1,8 +1,10 @@
-import 'package:api_integration/core/RoundedDialButton.dart';
-import 'package:api_integration/core/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../core/RoundedDialButton.dart';
+import '../core/app_colors.dart';
+
 
 class DialPadd extends StatefulWidget {
   const DialPadd({Key? key}) : super(key: key);
