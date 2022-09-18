@@ -170,17 +170,40 @@ class _ReviewSubmissionState extends State<ReviewSubmission> {
                     onPressed: () => showDialog<String>(
                           context: context,
                           builder: (BuildContext context) => AlertDialog(
-                          title: const Text('AlertDialog Title'),
-                          content: const Text('AlertDialog description'),
+                            backgroundColor: AppColors.drawerBackround,
+                          title: const Text('Are you sure you want to delete your review?',
+                          style: TextStyle(color: Colors.white),),
                           actions: <Widget>[
-                            TextButton(
-                          onPressed: () => Navigator.pop(context, 'Cancel'),
-                          child: const Text('Cancel'),
-                          ),
-                          TextButton(
-                          onPressed: () => Navigator.pop(context, 'OK'),
-                          child: const Text('OK'),
-                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+
+                              
+                              Expanded(child:  Container(
+                                child : TextButton(
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                    setState(() {
+                                      submissionState = 0;
+                                    });
+                                  },
+                                  child: const Text('Yes',
+                                    style: TextStyle(color: Colors.white, fontSize: 20),),
+                                )
+                            )),
+                              Expanded(
+                                child: Container(
+                                   //color : Colors.amber,
+                                  child: TextButton(
+                                    onPressed: () => Navigator.pop(context, 'Cancel'),
+                                    style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.amber)),
+                                    child: const Text('No',
+                                      style: TextStyle(color: Colors.black, fontSize: 20),),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
                           ],
                           ),
                     ),
