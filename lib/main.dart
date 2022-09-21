@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-     // home: LoginPage(),
+      home: LoginPage(),
      //home : EditReviewPage(),
-      home: ReviewSubmission(),
+      //home: ReviewSubmission(),
       //home: ReviewEditPage(),
     );
   }

@@ -1,4 +1,5 @@
 
+import 'package:bdcom_assignment/ui/contacs.dart';
 import 'package:bdcom_assignment/ui/dial_pad.dart';
 
 import 'package:flutter/material.dart';
@@ -18,7 +19,8 @@ class _MyStatefulWidgetState extends State<MainScreen> {
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     DialPadd(),
-    DialPadd(),
+    Contacs(),
+
 
     //FlutterContactsExample(),
 
@@ -54,7 +56,7 @@ class _MyStatefulWidgetState extends State<MainScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: 'Contacs',
           ),
 
           // BottomNavigationBarItem(
