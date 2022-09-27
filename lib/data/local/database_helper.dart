@@ -20,17 +20,6 @@ class DatabaseHelper {
 
   DatabaseHelper.createInstance();
 
-  // factory DatabaseHelper(){
-  //
-  //   print("inside dbhelper>>>>>>>>>>>>>>>>>>>");
-  //   if (_databaseHelper == null) {
-  //
-  //     print('null state>>>>>>>>>>>>>>>>>>>>');
-  //     _databaseHelper = DatabaseHelper.createInstance();
-  //   }
-  //   print("intialized");
-  //   return _databaseHelper;
-  // }
 
   void _createDb(Database db, int newVersion) async {
     final idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
@@ -64,28 +53,6 @@ class DatabaseHelper {
   }
 
 
-  // Future<Database> get database async {
-  //   if (_database == null) {
-  //     _database = await initializeDatabase();
-  //   }
-  //   return _database;
-  // }
-
-
-
-  // Future<dynamic> getReview ( Review review) async {
-  //   final db = await database;
-  //   var currentReview= await db.query(
-  //       reviewTable,
-  //       where: "${colReview} = ?",
-  //       whereArgs: [review.review ],
-  //       limit: 1
-  //   );
-  //
-  //  // return currentReview[0];
-  //
-  // }
-
 //Insert
 
   Future<int?> insertReview(Review review) async {
@@ -100,13 +67,6 @@ class DatabaseHelper {
   }
 
 //Update
-
-  // Future<int?> updateReview(Review review) async {
-  //   Database db = await this.database;
-  //   db.update(reviewTable, review.toMap(),
-  //       where: '$colReview = ?', whereArgs: [review.review]);
-  // }
-
 
   Future<void> updateDog(Review review) async {
 
@@ -124,16 +84,7 @@ class DatabaseHelper {
     );
   }
 
-//Delete
-
-  // Future<int?> deleteReview(int id) async {
-  //   Database db = await this.database;
-  //  print('   before delete????????????????/');
-  // var del=  db.rawDelete('DELETE FROM  $reviewTable WHERE $colReview = $id');
-  //   print("deleted>>>>>>>>>>>>>>>>>>> $del");
-  // }
-
-
+  //delete
 
   Future<void> deleteReview(int id) async {
     // Get a reference to the database.
@@ -155,27 +106,6 @@ class DatabaseHelper {
     await db.rawQuery('SELECT COUNT (*) from $reviewTable');
   }
 
-
-  //Query [fetch]
-  // Future<List<Review>> reviews() async {
-  //   // Get a reference to the database.
-  //   List<Review> review=[];
-  //   review.clear();
-  //   final db = await database;
-  //
-  //   // Query the table for all The Dogs.
-  //   final List<Map<String, dynamic>> maps = await db.query(reviewTable);
-  //
-  //   // Convert the List<Map<String, dynamic> into a List<Dog>.
-  //
-  //
-  //   return List.generate(maps.length, (i) {
-  //     return Review(
-  //        maps[i]['id'],
-  //        maps[i]['review'],
-  //     );
-  //   });
-  // }
 
 
   Future<List<Review>>   reviewList() async{
