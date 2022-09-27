@@ -207,10 +207,10 @@ class _LoginPageState extends State<LoginPage> {
                                   child: const Text('Login'),
                                   onPressed: () {
                                     // Validate returns true if the form is valid, or false otherwise.
-                                    if (_formKey.currentState!.validate()) {
-                                      ScaffoldMessenger.of(context).showSnackBar(
-                                        const SnackBar(content: Text('Processing Data')),
-                                      );
+                                   if (_formKey.currentState!.validate()) {
+                                    //  ScaffoldMessenger.of(context).showSnackBar(
+                                      //  const SnackBar(content: Text('Processing Data')),
+                                   //   );
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(builder: (context) =>  MainScreen()),

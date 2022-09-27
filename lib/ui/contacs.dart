@@ -35,16 +35,16 @@ class _ContacsState extends State<Contacs> {
       final contacts = await FastContacts.allContacts;
       sw.stop();
       _contacts = contacts;
-      _text = 'Contacts: ${contacts.length}\nTook: ${sw.elapsedMilliseconds}ms';
-    } on PlatformException catch (e) {
+      _text = 'Contacts: ${contacts.length}\n';
+         // 'Took: ${sw.elapsedMilliseconds}ms';
+    }
+    on PlatformException catch (e) {
       _text = 'Failed to get contacts:\n${e.details}';
     }
 
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
+    // set
     setState(() {});
   }
 
