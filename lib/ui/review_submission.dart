@@ -201,11 +201,7 @@ class _ReviewSubmissionState extends State<ReviewSubmission> {
                         SizedBox(
                           width: 15,
                         ),
-                        // Icon(
-                        //   Icons.arrow_forward_ios,
-                        //   color: AppColors.reviewButtonText,
-                        //   size: 22.0,
-                        // ),
+
                       ],
                     ),
                     onPressed: () => showDialog<String>(

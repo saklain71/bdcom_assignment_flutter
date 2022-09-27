@@ -45,11 +45,6 @@ class _MyStatefulWidgetState extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
 
-
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.school),
-          //   label: 'Contacts',
-          // ),
           BottomNavigationBarItem(
             icon: Icon(Icons.dialpad),
             label: 'Dial',
@@ -59,14 +54,6 @@ class _MyStatefulWidgetState extends State<MainScreen> {
             label: 'Contacs',
           ),
 
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.location_city),
-          //   label: 'Location',
-          // ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(Icons.school),
-          //   label: 'Profile',
-          // ),
         ],
 
         currentIndex: _selectedIndex,

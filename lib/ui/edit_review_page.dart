@@ -148,11 +148,7 @@ class _EditReviewPageState extends State<EditReviewPage> {
                         SizedBox(
                           width: 15,
                         ),
-                        // Icon(
-                        //   Icons.arrow_forward_ios,
-                        //   color: AppColors.reviewButtonText,
-                        //   size: 22.0,
-                        // ),
+
                       ],
                     ),
                     onPressed: ()

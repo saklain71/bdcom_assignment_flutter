@@ -79,9 +79,6 @@ class MyDrawer extends StatelessWidget {
               title: const Text('Loyality points',
                 style: TextStyle(color: Colors.white),),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
                 Navigator.pop(context);
               },
             ),
@@ -89,9 +86,6 @@ class MyDrawer extends StatelessWidget {
               title: const Text('Bill Payment',
                 style: TextStyle(color: Colors.white),),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
                 Navigator.pop(context);
               },
             ),
@@ -99,9 +93,6 @@ class MyDrawer extends StatelessWidget {
               title: const Text('Complain',
                 style: TextStyle(color: Colors.white),),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
                 Navigator.pop(context);
               },
             ),
@@ -109,9 +100,6 @@ class MyDrawer extends StatelessWidget {
               title: const Text('Review Submission',
                 style: TextStyle(color: Colors.white),),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
                 Navigator.pop(context);
                 Navigator.push(
                   context,
@@ -119,9 +107,7 @@ class MyDrawer extends StatelessWidget {
                 );
               },
             ),
-
             Expanded(child: SizedBox(height: 80,)),
-
             Align(
               alignment: Alignment.bottomCenter,
               child: Column(
@@ -142,8 +128,6 @@ class MyDrawer extends StatelessWidget {
                       height: 100,
                       child: Image.asset('assets/images/smile.png')
                   ),
-
-
                   Container(
                     color: AppColors.blackTextColor ,
                     width: MediaQuery.of(context).size.width,
@@ -154,16 +138,10 @@ class MyDrawer extends StatelessWidget {
                     ),
                   ),
 
-                  // DecoratedBox(
-                  //   decoration: const BoxDecoration(color: Colors.black),
-                  //  child : Text("smile selfcare app version 1.0",
-                  //     style: TextStyle(color: Colors.white),)
-                  // ),
                 ],
                 //trailing: Icon(CupertinoIcons.ellipsis),
               ),
             ),
-
           ],
         ),
       ),

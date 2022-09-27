@@ -136,7 +136,6 @@ class _LoginPageState extends State<LoginPage> {
                                       // if ( emailVal) return null;
                                       // else return 'Enter a Valid Email';
                                     }
-
                                     // return 'Enter valid Email';
                                   },
                                   //obscureText: true,
@@ -164,12 +163,7 @@ class _LoginPageState extends State<LoginPage> {
                                       // else return 'Enter a Valid Email';
                                     }
                                     // return 'Enter valid Email';
-
                                     ///Todo
-                                    ///
-                                    // return 'Need valid PassWord';
-                                    // if ( emailPass) return null;
-                                    // else
 
                                   },
                                   obscureText: true,
