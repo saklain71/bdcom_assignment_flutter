@@ -138,13 +138,23 @@ class _DialPadState extends State<DialPadd> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  RoundedDialButton(function: (){}, title: '',color: AppColors.colorWhite,),
-                  //RoundedDialButton(function: (){}, title: " ",color: Colors.green,),
                   CircleAvatar(
-                      child: Icon(Icons.phone,
+                    child: Icon(Icons.phone,
                       color: Colors.white,size: 30, ),
                     radius: 40,
-                    backgroundColor: Colors.green,
+                    backgroundColor: Colors.white,
+                  ),
+                  //RoundedDialButton(function: (){}, title: " ",color: Colors.green,),
+                  InkWell(
+                    onTap: (){
+
+                    },
+                    child: CircleAvatar(
+                        child: Icon(Icons.phone,
+                        color: Colors.white,size: 30, ),
+                      radius: 40,
+                      backgroundColor: Colors.green,
+                    ),
                   ),
                   CircleAvatar(
                     child: IconButton(
@@ -152,7 +162,10 @@ class _DialPadState extends State<DialPadd> {
                         icon: FaIcon(FontAwesomeIcons.remove,
                         color: Colors.black,),
                         onPressed: () {
-                          dialInput = " ";}
+                          setState(() {
+                            dialInput = "";
+                          });
+                        }
                     ),
                     radius: 40,
                     backgroundColor: AppColors.lightGreyColor,

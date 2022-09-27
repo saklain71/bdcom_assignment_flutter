@@ -1,6 +1,7 @@
 
 // import 'package:api_integration/ui/review_submission.dart';
 // import 'package:api_integration/ui/user_profile.dart';
+import 'package:bdcom_assignment/ui/login_page.dart';
 import 'package:bdcom_assignment/ui/review_submission.dart';
 import 'package:bdcom_assignment/ui/user_profile.dart';
 import 'package:flutter/material.dart';
@@ -43,6 +44,12 @@ class MyDrawer extends StatelessWidget {
                         style: TextStyle(color: Colors.white),),
                       TextButton(
                           onPressed: () {
+                            Navigator.pop(context);
+                            //Navigator.push(context, route)
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) =>  LoginPage()),
+                            );
                           },
                           child: Text("Log Out",
                             style: TextStyle(color: Colors.white),))
