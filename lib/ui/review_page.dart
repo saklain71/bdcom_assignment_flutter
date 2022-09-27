@@ -37,7 +37,7 @@ class _ReviewEditPageState extends State<ReviewEditPage> {
                 color: AppColors.colorWhite,
               ),
               height: width ,
-              width: width * 0.75,
+              width: width * .75,
               child: Stack(
                 children: [
                   Center(
@@ -50,7 +50,8 @@ class _ReviewEditPageState extends State<ReviewEditPage> {
                         borderRadius: BorderRadius.all(Radius.circular(5)),
                         //color: Colors.blue,
                       ),
-                      height: width * .65,
+                      padding: EdgeInsets.all(10),
+                      height: width * .75,
                       width:  width * .55,
                       child:     Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,16 +86,20 @@ class _ReviewEditPageState extends State<ReviewEditPage> {
                           ),
                           Text(
                               "Let's Play with SMILE Broadband Internet Engie join forces to convert the GOS, Orange's maiLet's Play with SMILE Broad..."
-                          ),SizedBox(
-                            height: 50,
                           ),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Text("Rahim",
+                          style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+                          Text("From , Jamalpur"),
                         ],
                       ),
                     ),
                   ),
                   Positioned(
                       left: 55,
-                      top:45 ,
+                      top: 30 ,
                       child: CircleAvatar(
                         child: Image.asset('assets/images/smile.png'),
                       )),

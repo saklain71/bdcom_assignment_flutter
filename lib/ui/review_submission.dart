@@ -21,42 +21,24 @@ class ReviewSubmission extends StatefulWidget {
 
 class _ReviewSubmissionState extends State<ReviewSubmission> {
 
-
    DatabaseHelper? _databaseHelper;
    TextEditingController? _inputController;
    Review? _review;
    String? submittedText;
-    //List<Review> listReview=[];
     var listReview;
-
   int submissionState = 0;
   @override
   void initState() {
     _databaseHelper = DatabaseHelper.instance;
     _inputController=TextEditingController();
-
     // TODO: implement initState
     super.initState();
   }
-
   @override
   Widget build(BuildContext context) {
-
-
     //_databaseHelper = DatabaseHelper();
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    //List<Review> listReview;
-    // if(submissionState==1) {
-    //   listReview = getReview();
-    //
-    // } else {
-    //   listReview=[];
-    // }
-
-
-
-
     return submissionState == 0 || submissionState == 2 ? Scaffold(
       appBar: AppBar(
         title: Text('Review Submission'),
@@ -155,15 +137,10 @@ class _ReviewSubmissionState extends State<ReviewSubmission> {
                                 ],
                               ),
                               onPressed: () async{
-
                                 _review=Review(0, _inputController!.text);
                                 insertData(_review!);
                                 var reiew= await  _databaseHelper!.reviewList();
                                 print('review from db >>>>>>>>>>>>>${reiew.elementAt(0).review}');
-
-
-
-
                                 setState(() {
                                   //await  _databaseHelper!.insertReview(_review!);
                                   submissionState = 1;
@@ -299,7 +276,7 @@ class _ReviewSubmissionState extends State<ReviewSubmission> {
                              borderRadius: BorderRadius.all(Radius.circular(5)),
                              //color: Colors.blue,
                            ),
-                           height: width * .65,
+                           height: width * .75,
                            width:  width * .55,
                            child:     Column(
                              crossAxisAlignment: CrossAxisAlignment.start,
@@ -338,15 +315,18 @@ class _ReviewSubmissionState extends State<ReviewSubmission> {
                                  //  "${listReview}"
                                   //"Let's Play with SMILE Broadband Internet Engie join forces to convert the GOS, Orange's maiLet's Play with SMILE Broad..."
                                ),SizedBox(
-                                 height: 50,
+                                 height: 30,
                                ),
+                               Text("Rahim",
+                                 style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+                               Text("From , Jamalpur"),
                              ],
                            ),
                          ),
                        ),
                        Positioned(
                            left: 55,
-                           top:45 ,
+                           top:30 ,
                            child: CircleAvatar(
                              child: Image.asset('assets/images/smile.png'),
                            )),
