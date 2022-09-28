@@ -37,7 +37,6 @@ class _ContacsState extends State<Contacs> {
     } on PlatformException catch (e) {
       _text = 'Failed to get contacts:\n${e.details}';
     }
-
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
     // set

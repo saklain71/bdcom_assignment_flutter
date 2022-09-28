@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +10,7 @@ class UserProfile extends StatefulWidget {
   @override
   State<UserProfile> createState() => _UserProfileState();
 }
+
 class _UserProfileState extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
@@ -27,112 +27,179 @@ class _UserProfileState extends State<UserProfile> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               Text("User Profile",
-                 textAlign: TextAlign.right,
-                 style: TextStyle(color: AppColors.userProfileText,fontSize: 40),),
+              Text(
+                "User Profile",
+                textAlign: TextAlign.right,
+                style:
+                    TextStyle(color: AppColors.userProfileText, fontSize: 40),
+              ),
               Divider(
                 color: AppColors.appBarColor,
               ),
-            SizedBox(
-              height: 15,
-            ),
+              SizedBox(
+                height: 15,
+              ),
               Expanded(
                 child: ListView(
                   children: [
                     Container(
-                      height : 80,
-                      margin: EdgeInsets.only(bottom: 5.0 ),
+                      height: 80,
+                      margin: EdgeInsets.only(bottom: 5.0),
                       child: TextField(
                         decoration: InputDecoration(
                             border: UnderlineInputBorder(
-                                borderRadius:BorderRadius.circular(10.0)),
+                                borderRadius: BorderRadius.circular(10.0)),
                             filled: true,
-                            label: Text('connection status',
-                              style: TextStyle(color: AppColors.textLabelColor,fontSize: 15),),
+                            label: Text(
+                              'Connection status',
+                              style: TextStyle(
+                                  color: AppColors.textLabelColor,
+                                  fontSize: 15),
+                            ),
                             //hintText: "Type in your text",
                             fillColor: Colors.white),
                       ),
                     ),
                     Container(
-                      height : 80,
-                      margin: EdgeInsets.only(bottom: 5.0 ),
+                      height: 80,
+                      margin: EdgeInsets.only(bottom: 5.0),
                       child: TextField(
                         decoration: InputDecoration(
                             border: UnderlineInputBorder(
-                                borderRadius:BorderRadius.circular(10.0)),
+                                borderRadius: BorderRadius.circular(10.0)),
                             filled: true,
-                            label: Text('connection status',
-                              style: TextStyle(color: AppColors.textLabelColor,fontSize: 15),),
+                            label: Text(
+                              'Name',
+                              style: TextStyle(
+                                  color: AppColors.textLabelColor,
+                                  fontSize: 15),
+                            ),
                             //hintText: "Type in your text",
                             fillColor: Colors.white),
                       ),
                     ),
                     Container(
-                      height : 80,
-                      margin: EdgeInsets.only(bottom: 5.0 ),
+                      height: 80,
+                      margin: EdgeInsets.only(bottom: 5.0),
                       child: TextField(
                         decoration: InputDecoration(
                             border: UnderlineInputBorder(
-                                borderRadius:BorderRadius.circular(10.0)),
+                                borderRadius: BorderRadius.circular(10.0)),
                             filled: true,
-                            label: Text('connection status',
-                              style: TextStyle(color: AppColors.textLabelColor,fontSize: 15),),
+                            label: Text(
+                              'Email',
+                              style: TextStyle(
+                                  color: AppColors.textLabelColor,
+                                  fontSize: 15),
+                            ),
                             //hintText: "Type in your text",
                             fillColor: Colors.white),
                       ),
                     ),
                     Container(
-                      height : 80,
-                      margin: EdgeInsets.only(bottom: 5.0 ),
+                      height: 80,
+                      margin: EdgeInsets.only(bottom: 5.0),
                       child: TextField(
                         decoration: InputDecoration(
                             border: UnderlineInputBorder(
-                                borderRadius:BorderRadius.circular(10.0)),
+                                borderRadius: BorderRadius.circular(10.0)),
                             filled: true,
-                            label: Text('connection status',
-                              style: TextStyle(color: AppColors.textLabelColor,fontSize: 15),),
+                            label: Text(
+                              'ID',
+                              style: TextStyle(
+                                  color: AppColors.textLabelColor,
+                                  fontSize: 15),
+                            ),
                             //hintText: "Type in your text",
                             fillColor: Colors.white),
                       ),
                     ),
                     Container(
-                      height : 80,
-                      margin: EdgeInsets.only(bottom: 5.0 ),
+                      height: 80,
+                      margin: EdgeInsets.only(bottom: 5.0),
                       child: TextField(
                         decoration: InputDecoration(
                             border: UnderlineInputBorder(
-                                borderRadius:BorderRadius.circular(10.0)),
+                                borderRadius: BorderRadius.circular(10.0)),
                             filled: true,
-                            label: Text('connection status',
-                              style: TextStyle(color: AppColors.textLabelColor,fontSize: 15),),
+                            label: Text(
+                              'Phone Number',
+                              style: TextStyle(
+                                  color: AppColors.textLabelColor,
+                                  fontSize: 15),
+                            ),
                             //hintText: "Type in your text",
                             fillColor: Colors.white),
                       ),
                     ),
                     Container(
-                      height : 80,
-                      margin: EdgeInsets.only(bottom: 5.0 ),
+                      height: 80,
+                      margin: EdgeInsets.only(bottom: 5.0),
                       child: TextField(
                         decoration: InputDecoration(
                             border: UnderlineInputBorder(
-                                borderRadius:BorderRadius.circular(10.0)),
+                                borderRadius: BorderRadius.circular(10.0)),
                             filled: true,
-                            label: Text('connection status',
-                              style: TextStyle(color: AppColors.textLabelColor,fontSize: 15),),
+                            label: Text(
+                              'Package',
+                              style: TextStyle(
+                                  color: AppColors.textLabelColor,
+                                  fontSize: 15),
+                            ),
                             //hintText: "Type in your text",
                             fillColor: Colors.white),
                       ),
                     ),
                     Container(
-                      height : 80,
-                      margin: EdgeInsets.only(bottom: 5.0 ),
+                      height: 80,
+                      margin: EdgeInsets.only(bottom: 5.0),
                       child: TextField(
                         decoration: InputDecoration(
                             border: UnderlineInputBorder(
-                                borderRadius:BorderRadius.circular(10.0)),
+                                borderRadius: BorderRadius.circular(10.0)),
                             filled: true,
-                            label: Text('connection status',
-                              style: TextStyle(color: AppColors.textLabelColor,fontSize: 15),),
+                            label: Text(
+                              'District',
+                              style: TextStyle(
+                                  color: AppColors.textLabelColor,
+                                  fontSize: 15),
+                            ),
+                            //hintText: "Type in your text",
+                            fillColor: Colors.white),
+                      ),
+                    ),
+                    Container(
+                      height: 80,
+                      margin: EdgeInsets.only(bottom: 5.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            border: UnderlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0)),
+                            filled: true,
+                            label: Text(
+                              'Address',
+                              style: TextStyle(
+                                  color: AppColors.textLabelColor,
+                                  fontSize: 15),
+                            ),
+                            //hintText: "Type in your text",
+                            fillColor: Colors.white),
+                      ),
+                    ),
+                    Container(
+                      height: 80,
+                      margin: EdgeInsets.only(bottom: 5.0),
+                      child: TextField(
+                        decoration: InputDecoration(
+                            border: UnderlineInputBorder(
+                                borderRadius: BorderRadius.circular(10.0)),
+                            filled: true,
+                            label: Text(
+                              'Refered By',
+                              style: TextStyle(
+                                  color: AppColors.textLabelColor,
+                                  fontSize: 15),
+                            ),
                             //hintText: "Type in your text",
                             fillColor: Colors.white),
                       ),
@@ -141,7 +208,6 @@ class _UserProfileState extends State<UserProfile> {
                 ),
               )
             ],
-
           ),
         ),
       ),
