@@ -1,10 +1,10 @@
-import 'package:bdcom_assignment/ui/edit_review_page.dart';
+// import 'package:bdcom_assignment/ui/edit_review_page.dart';
+// import 'package:bdcom_assignment/ui/login_page.dart';
+// import 'package:bdcom_assignment/ui/main_screen.dart';
+// import 'package:bdcom_assignment/ui/review_page.dart';
+// import 'package:bdcom_assignment/ui/review_submission.dart';
 import 'package:bdcom_assignment/ui/login_page.dart';
-import 'package:bdcom_assignment/ui/main_screen.dart';
-import 'package:bdcom_assignment/ui/review_page.dart';
-import 'package:bdcom_assignment/ui/review_submission.dart';
 import 'package:flutter/material.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -21,11 +21,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-        home: LoginPage(),
-       //home : EditReviewPage(),
+      // ignore: prefer_const_constructors
+      home: LoginPage(),
+      //home : EditReviewPage(),
       //home: ReviewSubmission(),
-     // home: ReviewEditPage(),
+      // home: ReviewEditPage(),
     );
   }
 }
-

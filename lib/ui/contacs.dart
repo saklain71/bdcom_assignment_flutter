@@ -1,7 +1,5 @@
 import 'dart:typed_data';
-
 import 'package:fast_contacts/fast_contacts.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -12,7 +10,6 @@ class Contacs extends StatefulWidget {
   @override
   State<Contacs> createState() => _ContacsState();
 }
-
 
 class _ContacsState extends State<Contacs> {
   List<Contact> _contacts = const [];
@@ -36,9 +33,8 @@ class _ContacsState extends State<Contacs> {
       sw.stop();
       _contacts = contacts;
       _text = 'Contacts: ${contacts.length}\n';
-         // 'Took: ${sw.elapsedMilliseconds}ms';
-    }
-    on PlatformException catch (e) {
+      // 'Took: ${sw.elapsedMilliseconds}ms';
+    } on PlatformException catch (e) {
       _text = 'Failed to get contacts:\n${e.details}';
     }
 
@@ -47,7 +43,6 @@ class _ContacsState extends State<Contacs> {
     // set
     setState(() {});
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -58,8 +53,10 @@ class _ContacsState extends State<Contacs> {
           Expanded(
             child: Scrollbar(
               controller: _ctrl,
+              // ignore: deprecated_member_use
               isAlwaysShown: true,
               interactive: true,
+              // ignore: deprecated_member_use
               showTrackOnHover: true,
               thickness: 24,
               child: ListView.builder(
@@ -83,7 +80,7 @@ class _ContactItem extends StatelessWidget {
     required this.contact,
   }) : super(key: key);
 
-  static final height = 72.0;
+  static const height = 72.0;
 
   final Contact contact;
 
@@ -143,11 +140,12 @@ class __ContactImageState extends State<_ContactImage> {
   Widget build(BuildContext context) {
     return FutureBuilder<Uint8List?>(
       future: _imageFuture,
-      builder: (context, snapshot) => Container(
+      builder: (context, snapshot) => SizedBox(
         width: 56,
         height: 56,
         child: snapshot.hasData
             ? Image.memory(snapshot.data!, gaplessPlayback: true)
+            // ignore: prefer_const_constructors
             : Icon(Icons.account_box_rounded),
       ),
     );

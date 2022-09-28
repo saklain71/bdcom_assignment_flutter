@@ -25,8 +25,10 @@ class _ReviewSubmissionState extends State<ReviewSubmission> {
    TextEditingController? _inputController;
    Review? _review;
    String? submittedText;
-    var listReview;
-  int submissionState = 0;
+   var listReview;
+   int submissionState = 0;
+
+   
   @override
   void initState() {
     _databaseHelper = DatabaseHelper.instance;
@@ -39,7 +41,8 @@ class _ReviewSubmissionState extends State<ReviewSubmission> {
     //_databaseHelper = DatabaseHelper();
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    return submissionState == 0 || submissionState == 2 ? Scaffold(
+
+   return submissionState == 0 || submissionState == 2 ? Scaffold(
       appBar: AppBar(
         title: Text('Review Submission'),
       ),
@@ -364,8 +367,8 @@ class _ReviewSubmissionState extends State<ReviewSubmission> {
     return reiew;
   }
 
-  void insertData(Review review) {
-      _databaseHelper!.insertReview(_review!);
+  void insertData(Review review) async{
+     await _databaseHelper!.insertReview(_review!);
   }
 
   void deleteReview() async{
