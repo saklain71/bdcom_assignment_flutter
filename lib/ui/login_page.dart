@@ -3,11 +3,11 @@
 import 'package:bdcom_assignment/ui/main_screen.dart';
 import 'package:bdcom_assignment/ui/validator.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import '../core/app_colors.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
-
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -17,6 +17,44 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passwordController = TextEditingController();
   bool willExitApp = false;
   final _formKey = GlobalKey<FormState>();
+
+  Future<bool> _handleLocationPermission() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    // if (serviceEnabled) {
+    //   ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+    //       content: Text(
+    //           'Location services are disabled. Please enable the services')));
+    //   return false;
+    // }
+    // serviceEnabled = await Geolocator.();
+    serviceEnabled = await Geolocator.openAppSettings();
+    permission = await Geolocator.checkPermission();
+
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Location permissions are denied')));
+        return false;
+      }
+    }
+    if (permission == LocationPermission.deniedForever) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text(
+              'Location permissions are permanently denied, we cannot request permissions.')));
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _handleLocationPermission();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
             builder: (BuildContext context) => AlertDialog(
               backgroundColor: AppColors.drawerBackround,
               title: const Text(
-                'Are you sure you want to delete your review?',
+                'Are you sure you want to Exit from App?',
                 style: TextStyle(color: Colors.white),
               ),
               actions: <Widget>[
@@ -56,8 +94,10 @@ class _LoginPageState extends State<LoginPage> {
                         //color : Colors.amber,
                         child: TextButton(
                           onPressed: () {
-                            willExitApp = false;
                             Navigator.pop(context);
+                            setState(() {
+                              willExitApp = false;
+                            });
                           },
                           style: ButtonStyle(
                               backgroundColor:
@@ -74,7 +114,6 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
           );
-
           return willExitApp;
         },
         child: Scaffold(
@@ -137,19 +176,18 @@ class _LoginPageState extends State<LoginPage> {
                                   validator: (val) {
                                     // Validator validate =  Validator();
                                     // validate.isValidEmail(val!);
-                                    //Validator.isValidEmail(val!);
                                     if (Validator.isValidEmail(val!)) {
                                       return null;
                                       // if ( emailVal) return null;
                                       // else return 'Enter a Valid Email';
                                     }
-                                    // return 'Enter valid Email';
+                                    return 'Enter valid Email';
                                   },
                                   //obscureText: true,
                                   controller: nameController,
                                   decoration: const InputDecoration(
                                       border: OutlineInputBorder(),
-                                      hintText: 'User Id'
+                                      hintText: 'S@gmail.com'
                                       //labelText: 'Email',
                                       ),
                                 ),
@@ -169,17 +207,19 @@ class _LoginPageState extends State<LoginPage> {
                                       // if ( emailVal) return null;
                                       // else return 'Enter a Valid Email';
                                     }
-                                    // return 'Enter valid Email';
+                                    return 'Enter valid password';
+
                                     ///Todo
                                   },
                                   obscureText: true,
                                   controller: passwordController,
                                   decoration: const InputDecoration(
                                     border: OutlineInputBorder(),
-                                    hintText: 'Password',
+                                    hintText: 'Sss12345@',
                                   ),
                                 ),
                               ),
+
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
@@ -215,15 +255,18 @@ class _LoginPageState extends State<LoginPage> {
                                   onPressed: () {
                                     // Validate returns true if the form is valid, or false otherwise.
                                     if (_formKey.currentState!.validate()) {
-                                      //  ScaffoldMessenger.of(context).showSnackBar(
-                                      //  const SnackBar(content: Text('Processing Data')),
-                                      //   );
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        const SnackBar(
+                                            content: Text('Processing Data')),
+                                      );
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) => MainScreen()),
                                       );
                                     }
+
                                     // ignore: avoid_print
                                     print(nameController.text);
                                     print(passwordController.text);

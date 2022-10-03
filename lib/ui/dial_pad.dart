@@ -19,22 +19,24 @@ class _DialPadState extends State<DialPadd> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(15.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Expanded(
                 child: Container(
+                  //height: 20,
                   //color: Colors.red,
                   child: Text(
+                    maxLines: 1,
                     "$dialInput",
-                    style: TextStyle(fontSize: 40),
+                    style: TextStyle(fontSize: 39),
                   ),
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
+              // SizedBox(
+              //   height: 10,
+              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [

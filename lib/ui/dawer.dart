@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 // import 'package:api_integration/ui/review_submission.dart';
 // import 'package:api_integration/ui/user_profile.dart';
+import 'package:bdcom_assignment/ui/location.dart';
 import 'package:bdcom_assignment/ui/login_page.dart';
 import 'package:bdcom_assignment/ui/review_submission.dart';
 import 'package:bdcom_assignment/ui/user_profile.dart';
@@ -127,6 +128,19 @@ class MyDrawer extends StatelessWidget {
                 );
               },
             ),
+            ListTile(
+              title: const Text(
+                'Location',
+                style: TextStyle(color: Colors.white),
+              ),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LocationPage()),
+                );
+              },
+            ),
             Expanded(
                 child: SizedBox(
               height: 80,
@@ -153,8 +167,9 @@ class MyDrawer extends StatelessWidget {
                     ),
                   ),
                   Container(
+                      // margin: EdgeInsets.only(top: 2),
                       width: 100,
-                      height: 100,
+                      height: 50,
                       child: Image.asset('assets/images/smile.png')),
                   Container(
                     color: AppColors.blackTextColor,
