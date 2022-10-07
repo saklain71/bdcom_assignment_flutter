@@ -1,29 +1,24 @@
 
 import 'package:bdcom_assignment/ui/contacs.dart';
 import 'package:bdcom_assignment/ui/dial_pad.dart';
-
 import 'package:flutter/material.dart';
-
 import 'dawer.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
-
   @override
   State<MainScreen> createState() => _MyStatefulWidgetState();
 }
 
 class _MyStatefulWidgetState extends State<MainScreen> {
+
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
   TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     DialPadd(),
     Contacs(),
-
-
     //FlutterContactsExample(),
-
   ];
 
   void _onItemTapped(int index) {

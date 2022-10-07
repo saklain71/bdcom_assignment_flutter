@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 abstract class AppColors {
+
   static const Color pageBackground = Color(0xFF03314B);
+  static const Color saklainCustomise = Color(0xFF06760B);
   static const Color butonTextColor = Color(0xFF03314B);
   static const Color drawerBackround = Color(0xFF03314B);
   static const Color textLabelColor = Color(0xFFCCCCCC);
@@ -52,17 +54,12 @@ abstract class AppColors {
   static Color searchFieldTextColor = const Color(0xFF1D1D1D);
   static Color searchFieldTextHintsColor = const Color(0xFF989898).withOpacity(0.5);
   static Color searchFieldSuffixIconColor = const Color(0xFFA7A7A7).withOpacity(0.5);
-
   static const Color iconColorDefault = Colors.grey;
-
   static Color barrierColor = const Color(0xFF000000).withOpacity(0.5);
-
   static Color timelineDividerColor = const Color(0x5438686A);
-
   static const Color gradientStartColor = Colors.black87;
   static const Color gradientEndColor = Colors.transparent;
   static const Color silverAppBarOverlayColor = Color(0x80323232);
-
   static const Color switchActiveColor = colorPrimary;
   static const Color switchInactiveColor = Color(0xFFABABAB);
   static Color elevatedContainerColorOpacity = Colors.grey.withOpacity(0.5);

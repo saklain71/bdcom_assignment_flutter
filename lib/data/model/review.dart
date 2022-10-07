@@ -7,10 +7,10 @@ class Review {
 
 //  Review(this._id,this._review);
   Review(this._id,this._review);
- // Review.withId(this._id, this._review);
+
+ Review.withId(this._id, this._review);
 
   String get review => _review;
-
    int get id => _id;
 
    set review(String value) {
@@ -34,6 +34,5 @@ class Review {
     this._id = map['id'];
     this._review =map['review'];
   }
-
 }
 

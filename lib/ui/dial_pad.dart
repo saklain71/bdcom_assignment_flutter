@@ -13,6 +13,7 @@ class DialPadd extends StatefulWidget {
 
 class _DialPadState extends State<DialPadd> {
   String dialInput = "";
+  int reduce = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -157,7 +158,7 @@ class _DialPadState extends State<DialPadd> {
                   RoundedDialButton(
                     function: () {
                       setState(() {
-                        dialInput = dialInput + "0";
+                        dialInput = dialInput + '0';
                       });
                     },
                     title: '0',
@@ -180,14 +181,30 @@ class _DialPadState extends State<DialPadd> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  // CircleAvatar(
+                  //   child: Icon(
+                  //     Icons.phone,
+                  //     color: Colors.white,
+                  //     size: 30,
+                  //   ),
+                  //   radius: 40,
+                  //   backgroundColor: Colors.black,
+                  // ),
+
                   CircleAvatar(
-                    child: Icon(
-                      Icons.phone,
-                      color: Colors.white,
-                      size: 30,
-                    ),
+                    child: IconButton(
+                      // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
+                        icon: FaIcon(
+                          FontAwesomeIcons.backspace,
+                          color: Colors.black,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            dialInput = dialInput ;
+                          });
+                        }),
                     radius: 40,
-                    backgroundColor: Colors.white,
+                    backgroundColor: AppColors.lightGreyColor,
                   ),
                   //RoundedDialButton(function: (){}, title: " ",color: Colors.green,),
                   InkWell(

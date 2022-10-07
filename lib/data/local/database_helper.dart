@@ -13,11 +13,9 @@ class DatabaseHelper {
   DatabaseHelper._init();
 
   static  Database? _database;
-
   String reviewTable = 'review_table';
   String colId = 'id';
   String colReview = 'review';
-
   DatabaseHelper.createInstance();
 
 
@@ -37,6 +35,7 @@ class DatabaseHelper {
     ''');
   }
 
+
   Future<Database> initializeDatabase() async {
     Directory directory = await getApplicationDocumentsDirectory();
     String path = directory.path + 'review.db';
@@ -47,7 +46,6 @@ class DatabaseHelper {
 
   Future<Database> get database async {
     if (_database != null) return _database!;
-
     _database = await initializeDatabase();
     return _database!;
   }
@@ -61,7 +59,6 @@ class DatabaseHelper {
        reviewTable,
        review.toMap(),
        conflictAlgorithm: ConflictAlgorithm.replace,
-
      );
      print("inserted>>>>>>>>>>>>>>>>>>> $insertData");
   }
@@ -69,10 +66,8 @@ class DatabaseHelper {
 //Update
 
   Future<void> updateDog(Review review) async {
-
     // Get a reference to the database.
     final db = await database;
-
     // Update the given Dog.
     await db.update(
       reviewTable,
@@ -84,12 +79,11 @@ class DatabaseHelper {
     );
   }
 
-  //delete
 
+  //delete
   Future<void> deleteReview(int id) async {
     // Get a reference to the database.
     final db = await database;
-
     // Remove the Dog from the database.
     await db.delete(
       reviewTable,
@@ -100,38 +94,31 @@ class DatabaseHelper {
     );
   }
 
-  Future<int?> getCount() async {
-    Database db = await this.database;
-    List<Map<String, dynamic>> a =
-    await db.rawQuery('SELECT COUNT (*) from $reviewTable');
-  }
+  // Future<int?> getCount() async {
+  //   Database db = await this.database;
+  //   List<Map<String, dynamic>> a =
+  //   await db.rawQuery('SELECT COUNT (*) from $reviewTable');
+  // }
 
 
+//fetch
 
   Future<List<Review>>   reviewList() async{
     var reviewMapList=await getReviewMapList();
     int count=reviewMapList.length;
     int i;
     List<Review> reviewlist=[];
-
-
     for( i=0;i<count;i++){
       reviewlist.add(Review.fromMapObject(reviewMapList[i]));
     }
-
-
     return reviewlist;
-
   }
 
-
   //Fetch
-
   Future<List<Map<String, dynamic>>> getReviewMapList() async {
     Database db = await this.database;
     var result = db.query(reviewTable);
     return result;
   }
-
 }
 

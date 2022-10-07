@@ -28,8 +28,6 @@ class _ReviewEditPageState extends State<ReviewEditPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-
-
             Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(10)),

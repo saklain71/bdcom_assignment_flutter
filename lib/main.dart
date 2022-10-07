@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
       ),
       // ignore: prefer_const_constructors
       home: LoginPage(),
+     // home: MainScreen(),
       //home : EditReviewPage(),
       //home: ReviewSubmission(),
       // home: ReviewEditPage(),

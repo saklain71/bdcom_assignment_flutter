@@ -20,10 +20,12 @@ class ReviewSubmission extends StatefulWidget {
 }
 
 class _ReviewSubmissionState extends State<ReviewSubmission> {
+
   DatabaseHelper? _databaseHelper;
   TextEditingController? _inputController;
   Review? _review;
   String? submittedText;
+
   var listReview;
   int submissionState = 0;
 
