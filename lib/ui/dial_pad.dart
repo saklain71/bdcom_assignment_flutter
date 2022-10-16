@@ -4,9 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../core/RoundedDialButton.dart';
 import '../core/app_colors.dart';
 
+
 class DialPadd extends StatefulWidget {
   const DialPadd({Key? key}) : super(key: key);
-
   @override
   State<DialPadd> createState() => _DialPadState();
 }
@@ -14,6 +14,26 @@ class DialPadd extends StatefulWidget {
 class _DialPadState extends State<DialPadd> {
   String dialInput = "";
   int reduce = 0;
+  var cursorPos ;
+  String? suffixText;
+  String? prefixText;
+
+  TextEditingController inputDial = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    inputDial.addListener(() {
+      setState(() {
+        cursorPos =  inputDial.selection.base.offset;
+       // inputDial.selection = TextSelection.fromPosition(TextPosition(offset: inputDial.text.length));
+        print('>>>>>>>>>>>>>>>>>>>>>>>>>>> cursor $cursorPos');
+
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,9 +48,22 @@ class _DialPadState extends State<DialPadd> {
                 child: Container(
                   //height: 20,
                   //color: Colors.red,
-                  child: Text(
+                  child: TextField(
+
+                    decoration: InputDecoration(
+                      border: InputBorder.none),
+
+                    onChanged: (text) {
+                      TextSelection previousSelection = inputDial.selection;
+                      inputDial.text = text;
+                      inputDial.selection = previousSelection;
+                    },
+
                     maxLines: 1,
-                    "$dialInput",
+                    showCursor: true,
+                    controller: inputDial,
+                    cursorColor: Colors.green,
+                    readOnly: true,
                     style: TextStyle(fontSize: 39),
                   ),
                 ),
@@ -44,7 +77,9 @@ class _DialPadState extends State<DialPadd> {
                   RoundedDialButton(
                     function: () {
                       setState(() {
-                        dialInput = dialInput + "1";
+                        inputDial.text =  inputDial.text + '1';
+                        inputDial.selection = TextSelection.fromPosition(TextPosition(offset: inputDial.text.length));
+
                       });
                     },
                     title: '1',
@@ -53,8 +88,16 @@ class _DialPadState extends State<DialPadd> {
                   RoundedDialButton(
                     function: () {
                       setState(() {
-                        dialInput = dialInput + "2";
-                      });
+                        inputDial.text =  inputDial.text + '2';
+                        inputDial.selection = TextSelection.fromPosition(TextPosition(offset: inputDial.text.length));
+                        // suffixText = inputDial.text.substring(cursorPos);
+                        // prefixText = inputDial.text.substring(0, cursorPos);
+                        // inputDial.text = prefixText! + suffixText!;
+                        // inputDial.selection = TextSelection(
+                        //     baseOffset: cursorPos ,
+                        //     extentOffset: cursorPos
+                        // );
+                    });
                     },
                     title: '2',
                     color: AppColors.lightGreyColor,
@@ -62,7 +105,10 @@ class _DialPadState extends State<DialPadd> {
                   RoundedDialButton(
                     function: () {
                       setState(() {
-                        dialInput = dialInput + "3";
+                        //dialInput = dialInput + "3";
+                        inputDial.text =  inputDial.text + '3';
+                       //  suffixText = inputDial.text.substring(cursorPos);
+                        inputDial.selection = TextSelection.fromPosition(TextPosition(offset: inputDial.text.length));
                       });
                     },
                     title: '3',
@@ -79,7 +125,9 @@ class _DialPadState extends State<DialPadd> {
                   RoundedDialButton(
                     function: () {
                       setState(() {
-                        dialInput = dialInput + "4";
+                       // dialInput = dialInput + "4";
+                        inputDial.text =  inputDial.text + '4';
+                        inputDial.selection = TextSelection.fromPosition(TextPosition(offset: inputDial.text.length));
                       });
                     },
                     title: '4',
@@ -88,7 +136,8 @@ class _DialPadState extends State<DialPadd> {
                   RoundedDialButton(
                     function: () {
                       setState(() {
-                        dialInput = dialInput + "5";
+                        inputDial.text =  inputDial.text + '5';
+                        inputDial.selection = TextSelection.fromPosition(TextPosition(offset: inputDial.text.length));
                       });
                     },
                     title: '5',
@@ -97,7 +146,8 @@ class _DialPadState extends State<DialPadd> {
                   RoundedDialButton(
                     function: () {
                       setState(() {
-                        dialInput = dialInput + "6";
+                        inputDial.text =  inputDial.text + '6';
+                        inputDial.selection = TextSelection.fromPosition(TextPosition(offset: inputDial.text.length));
                       });
                     },
                     title: '6',
@@ -114,7 +164,8 @@ class _DialPadState extends State<DialPadd> {
                   RoundedDialButton(
                     function: () {
                       setState(() {
-                        dialInput = dialInput + "7";
+                        inputDial.text =  inputDial.text + '7';
+                        inputDial.selection = TextSelection.fromPosition(TextPosition(offset: inputDial.text.length));
                       });
                     },
                     title: '7',
@@ -123,7 +174,8 @@ class _DialPadState extends State<DialPadd> {
                   RoundedDialButton(
                     function: () {
                       setState(() {
-                        dialInput = dialInput + "8";
+                        inputDial.text =  inputDial.text + '8';
+                        inputDial.selection = TextSelection.fromPosition(TextPosition(offset: inputDial.text.length));
                       });
                     },
                     title: '8',
@@ -132,7 +184,9 @@ class _DialPadState extends State<DialPadd> {
                   RoundedDialButton(
                     function: () {
                       setState(() {
-                        dialInput = dialInput + "9";
+                     //   dialInput = dialInput + "9";
+                        inputDial.text =  inputDial.text + '9';
+                        inputDial.selection = TextSelection.fromPosition(TextPosition(offset: inputDial.text.length));
                       });
                     },
                     title: '9',
@@ -149,7 +203,9 @@ class _DialPadState extends State<DialPadd> {
                   RoundedDialButton(
                     function: () {
                       setState(() {
-                        dialInput = dialInput + "*";
+                        //dialInput = dialInput + "*";
+                        inputDial.text =  inputDial.text + '*';
+                        inputDial.selection = TextSelection.fromPosition(TextPosition(offset: inputDial.text.length));
                       });
                     },
                     title: '*',
@@ -158,7 +214,9 @@ class _DialPadState extends State<DialPadd> {
                   RoundedDialButton(
                     function: () {
                       setState(() {
-                        dialInput = dialInput + '0';
+                      //  dialInput = dialInput + '0';
+                        inputDial.text =  inputDial.text + '0';
+                        inputDial.selection = TextSelection.fromPosition(TextPosition(offset: inputDial.text.length));
                       });
                     },
                     title: '0',
@@ -167,7 +225,9 @@ class _DialPadState extends State<DialPadd> {
                   RoundedDialButton(
                     function: () {
                       setState(() {
-                        dialInput = dialInput + "#";
+                     //   dialInput = dialInput + "#";
+                        inputDial.text =  inputDial.text + '#';
+                        inputDial.selection = TextSelection.fromPosition(TextPosition(offset: inputDial.text.length));
                       });
                     },
                     title: '#',
@@ -200,7 +260,8 @@ class _DialPadState extends State<DialPadd> {
                         ),
                         onPressed: () {
                           setState(() {
-                            dialInput = dialInput ;
+                           // dialInput = dialInput ;
+                            inputDial.text =  inputDial.text + '.';
                           });
                         }),
                     radius: 40,
@@ -228,7 +289,7 @@ class _DialPadState extends State<DialPadd> {
                         ),
                         onPressed: () {
                           setState(() {
-                            dialInput = "";
+                            inputDial.text = '';
                           });
                         }),
                     radius: 40,
